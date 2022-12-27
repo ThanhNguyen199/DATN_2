@@ -17,12 +17,12 @@
                         aria-label="Search">
                     <div class="input-group-append">
                         <button class="btn btn-sidebar">
-                            <i class="fas fa-search fa-fw"> </i>
+                            <i class="fas fa-search fa-fw"></i>
                         </button>
                     </div>
                 </div>
             </div>
-            <!-- Sidebar Menu --> 
+            <!-- Sidebar Menu -->
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <li class="nav-item">

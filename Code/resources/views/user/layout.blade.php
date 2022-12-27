@@ -35,6 +35,7 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/util.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/mystyle.css')}}">
     <!--===============================================================================================-->
 
 </head>
@@ -345,13 +346,25 @@
         </div>
     </footer>
 
+    <!-- Contact switcher -->
+    <div class="contact__switcher">
+        <div class="theme__contact">
+            <a href="{{ URL::to(route('screen_home')) }}" class=""><i class="fa fa-home text-dark"></i></a>
+        </div>
+        <div class="theme__contact">
+            <a href="https://vi-vn.facebook.com/thanhntm0406" class="" target="_blank"><i class="fa fa-facebook text-dark"></i></a>
+        </div>   
+        <div class="theme__contact">
+            <a href="tel:0911966944" class=""><i class="fa fa-phone text-dark"></i></a>
+        </div>
+    </div>
+    
     <!-- Back to top -->
     <div class="btn-back-to-top" id="myBtn">
         <span class="symbol-btn-back-to-top">
             <i class="zmdi zmdi-chevron-up"></i>
         </span>
     </div>
-
 
     <!-- Start Script -->
 

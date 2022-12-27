@@ -33,3 +33,23 @@
 .pd-12{
     padding-left: 12px;
 }
+.contact__switcher{
+    position: fixed;
+    right: 0;
+    top: 26%;
+    width: 50px;
+    z-index: 10;
+    background-color: #fff;
+    padding: 1rem;
+    box-shadow: -0.5px 0.5px 4px var(hsla(0, 0%, 15%, .1));
+    border-radius: .5rem 0 0 .5rem;
+}
+.theme__contact{
+    display: inline-flex;
+    text-align: center;
+    font-size: 1.5rem;
+    background-color: #fff;
+}
+.theme__contact.a{
+    text-align: center;
+}

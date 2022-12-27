@@ -227,6 +227,21 @@
                                 @if (Auth::check() && Auth::user()->role->name === Config::get('auth.roles.user'))
                                 <form class="w-full" action="{{ URL::to(route('comment', ['id' => $product->id])) }}" method="POST">
                                     @csrf
+                                    <div class="flex-w flex-m p-t-50 p-b-23">
+                                        <span class="stext-102 cl3 m-r-16">
+                                            Đánh giá của bạn
+                                        </span>
+
+                                        <span class="wrap-rating fs-18 cl11 pointer">
+                                            <i class="item-rating pointer zmdi zmdi-star-outline"></i>
+                                            <i class="item-rating pointer zmdi zmdi-star-outline"></i>
+                                            <i class="item-rating pointer zmdi zmdi-star-outline"></i>
+                                            <i class="item-rating pointer zmdi zmdi-star-outline"></i>
+                                            <i class="item-rating pointer zmdi zmdi-star-outline"></i>
+                                            <input class="dis-none" type="number" name="rating">
+                                        </span>
+                                    </div>
+                                    
                                     <h5 class="mtext-108 cl2 p-b-7">
                                         Thêm bình luận
                                     </h5>
@@ -257,6 +272,13 @@
                                             @else
                                             <span class="mtext-107 cl2 p-r-20">{{ $comment->user->name }}</span>
                                             @endif
+                                            <span class="fs-18 cl11">
+                                                <i class="zmdi zmdi-star"></i>
+                                                <i class="zmdi zmdi-star"></i>
+                                                <i class="zmdi zmdi-star"></i>
+                                                <i class="zmdi zmdi-star"></i>
+                                                <i class="zmdi zmdi-star"></i>
+                                            </span>
                                         </div>
 
                                         <p class="stext-102 cl6">{{ $comment->description }}</p>

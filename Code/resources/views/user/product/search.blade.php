@@ -112,6 +112,7 @@
 
         <div class="row isotope-grid">
             @foreach ($products as $key => $pro)
+            @if ($pro->category->id != 4) 
             <!-- Block2 -->
             <div class="col-sm-6 col-md-4  p-b-35 isotope-item">
                 <div class="block2">
@@ -147,7 +148,48 @@
                     </div>
                 </div>
             </div>
-            @endforeach            
+            @endif
+            @endforeach     
+            <!-- show accessory -->
+            @foreach ($products as $key => $pro)
+            @if ($pro->category->id == 4) 
+            <!-- Block2 -->
+            <div class="col-sm-6 col-md-4  p-b-35 isotope-item">
+                <div class="block2">
+                    <div class="block2-pic hov-img0">
+                        <img src="@if (isset($pro->image)) {{ asset('' . $pro->image) }} @else {{ asset('' . Config::get('app.image.default')) }} @endif" alt="IMG-PRODUCT">
+
+                        <a href="{{ URL::to(route('detail_product', ['id' => $pro->id])) }}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
+                            Xem ngay
+                        </a>
+                    </div>
+                    <div class="block2-txt flex-w flex-t p-t-14">
+                        <div class="block2-txt-child1 flex-col-l ">
+                            <a href="{{ URL::to(route('detail_product', ['id' => $pro->id])) }}" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+                                {{ $pro->name }}
+                            </a>
+
+                            <span class="stext-105 cl3">
+                                <?php $now = Carbon\Carbon::now()->toDateTimeString() ?>
+                                @if ($now <= $pro->end_promotion && $now >= $pro->start_promotion)
+                                    <li class="text-right text-dark" style="font-weight: bold!important">
+                                        {{ Lang::get('message.before_unit_money') . number_format($pro->price_down, 0, ',', '.') . Lang::get('message.after_unit_money') }}
+                                    </li>
+                                    <li class="text-right text-dark" style="text-decoration: line-through">
+                                        {{ Lang::get('message.before_unit_money') . number_format($pro->price, 0, ',', '.') . Lang::get('message.after_unit_money') }}
+                                    </li>
+                                    @else
+                                    <li class="text-right text-dark" style="font-weight: bold!important">
+                                        {{ Lang::get('message.before_unit_money') . number_format($pro->price, 0, ',', '.') . Lang::get('message.after_unit_money') }}
+                                    </li>
+                                    @endif
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endif
+            @endforeach     
         </div>
 
         <!-- Load more -->
